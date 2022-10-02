@@ -182,6 +182,18 @@ $ render_summary= render_template("type/edition/title_summary", work, edition, o
     </div>
 
     <div class="editionAbout">
+      $if page.type.key in ["/type/work", "/type/edition", "/type/author"]:
+        $if edition and page.type.key in ["/type/work"]:
+          $ edit_url = edition.url(suffix="/edit")
+        $else:
+          $ edit_url = page.url(suffix="/edit")
+      $else:
+        $ edit_url = page.key + "?m=edit"
+      $:render_template("type/edition/compact_title", book_title, edit_url)
+      $ component_times['get_observation_metrics'] = time()
+      $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
+      $ component_times['get_observation_metrics'] = time() - component_times['get_observation_metrics']
+      $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations)
       <div class="editionAll">
         $ component_times['EditTopbar'] = time()
         $:macros.databarView(page, edition)
@@ -190,20 +202,8 @@ $ render_summary= render_template("type/edition/title_summary", work, edition, o
     <!--This section appears only in desktop-->
     <div class="desktop-book-header">
       $:render_summary
-
-      $if page.type.key in ["/type/work", "/type/edition", "/type/author"]:
-        $if edition and page.type.key in ["/type/work"]:
-          $ edit_url = edition.url(suffix="/edit")
-        $else:
-          $ edit_url = page.url(suffix="/edit")
-      $else:
-        $ edit_url = page.key + "?m=edit"
     </div>
-      $:render_template("type/edition/compact_title", book_title, edit_url)
-      $ component_times['get_observation_metrics'] = time()
-      $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
-      $ component_times['get_observation_metrics'] = time() - component_times['get_observation_metrics']
-      $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations)
+
       <a id="edition-overview" name="edition-overview"></a>
       <div>
         $if edition:

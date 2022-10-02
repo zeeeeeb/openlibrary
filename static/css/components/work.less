@@ -202,28 +202,25 @@ h2.edition-byline {
 .work-menu li {
   display: inline;
   font-size: 13px;
+  vertical-align: middle;
 }
 
 .nav-bar li a,
 .work-menu li a {
   text-decoration: none;
   color: @grey;
-  padding: 12px 15px 8px;
+  padding: 4px 6px 4px;
   display: inline-block;
-  @media only screen and (min-width: @width-breakpoint-tablet) {
-    padding-top: 4px;
-  }
+  // @media only screen and (min-width: @width-breakpoint-tablet) {
+  //   padding-top: 4px;
+  // }
 }
 
 .nav-bar li.selected a,
 .work-menu li.selected a {
-  color: @link-blue;
-  border-bottom: 2px solid @link-blue;
-}
-
-.nav-bar li:hover a,
-.work-menu li:hover a {
-  border-bottom: 2px solid @link-blue;
+  color: @off-white;
+  background-color: @primary-blue;
+  border-radius: 7px; 
 }
 
 a.section-anchor {
