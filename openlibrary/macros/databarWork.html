@@ -1,4 +1,4 @@
-$def with (page, editions_page=False, render_times={}, summary=None, modal_links=None)
+$def with (page, editions_page=False, render_times={}, summary=None, modal_links=None, show_observations=None, work=None)
 
 $if page.type.key == '/type/work' and page.edition_count == 1:
     $ edit_url = page.editions[0].key + '?m=edit'
@@ -37,7 +37,10 @@ $if isbn_10 and not asin:
 
     <div class="panel">
       <div class="btn-notice read-options" id="read-options">
-
+        <div class="mobile-edition-nav">
+          $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
+          $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations)
+        </div>
         <div class="illustration edition-cover">
           $:render_template('covers/book_cover', page)
           $# Don't display add/change cover link for /books/ia:foo00bar pages

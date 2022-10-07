@@ -137,7 +137,7 @@ $def display_identifiers(label, ids, itemprop=None):
 
         <!-- FIXME: Identifier names need to be translated (I18N) -->
         <dt>$label</dt>
-        <dd class="object" $:cond(itemprop, 'itemprop="%s"' % itemprop, '')>
+        <dd class="object" $:cond(itemprop, 'itemprop="%s"' % itemprop, 
             $for id in ids:
                 $ sep = cond(loop.last, "", ", ")
                 $if -1 != id.value.find('openlib-'):
@@ -178,7 +178,7 @@ $ render_summary= render_template("type/edition/title_summary", work, edition, o
       $ modal_links = render_template("type/edition/modal_links", work, edition, share_url)
       $ component_times['databarWork: Modal Links'] = time() - component_times['databarWork: Modal Links']
 
-      $:macros.databarWork(edition or work, editions_page=True, render_times=component_times,summary=render_summary, modal_links=modal_links)
+      $:macros.databarWork(edition or work, editions_page=True, render_times=component_times,summary=render_summary, modal_links=modal_links, show_observations=show_observations, work=work)
     </div>
 
     <div class="editionAbout">

@@ -4,7 +4,8 @@
  */
 
 // .Tools .btn-notice is a legacy selector. Remove at earliest opportunity.
-.mobile-book-header{
+.mobile-book-header,
+.mobile-edition-nav {
   display: none;
 }
 .waitinglist-message {
@@ -119,7 +120,8 @@
   font-size: 12px;
 }
 @media only screen and (max-width: @width-breakpoint-desktop){
-  .mobile-book-header{
+  .mobile-book-header, 
+  .mobile-edition-nav {
     display: inline;
   }
 }
