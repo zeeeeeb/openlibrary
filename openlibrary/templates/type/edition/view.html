@@ -137,7 +137,7 @@ $def display_identifiers(label, ids, itemprop=None):
 
         <!-- FIXME: Identifier names need to be translated (I18N) -->
         <dt>$label</dt>
-        <dd class="object" $:cond(itemprop, 'itemprop="%s"' % itemprop, 
+        <dd class="object" $:cond(itemprop, 'itemprop="%s"' % itemprop, '')> 
             $for id in ids:
                 $ sep = cond(loop.last, "", ", ")
                 $if -1 != id.value.find('openlib-'):

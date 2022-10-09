@@ -34,13 +34,12 @@ $if isbn_10 and not asin:
           <div class="panel">
             <p><a href="$viewbook.replace('XXX', v.ia_id)">View Volume $v.volume_number</a></p>
           </div>
-
+    <div class="mobile-edition-nav">
+      $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
+      $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations)
+    </div>
     <div class="panel">
       <div class="btn-notice read-options" id="read-options">
-        <div class="mobile-edition-nav">
-          $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
-          $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations)
-        </div>
         <div class="illustration edition-cover">
           $:render_template('covers/book_cover', page)
           $# Don't display add/change cover link for /books/ia:foo00bar pages

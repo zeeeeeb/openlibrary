@@ -164,6 +164,8 @@ h2.edition-byline {
   &.sticky {
     position: sticky;
     top: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background: @white;
     z-index: @z-index-level-3;
     // Make tab bar full width on mobile
@@ -191,7 +193,7 @@ h2.edition-byline {
 @media only screen and (min-width: @width-breakpoint-tablet) {
   .nav-bar.sticky,
   .work-menu.sticky {
-    top: @compact-title-height;
+    top: 0px;//@compact-title-height;
     margin-left: 0;
     margin-right: 0;
     width: 100%;

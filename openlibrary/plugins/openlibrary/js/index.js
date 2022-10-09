@@ -404,8 +404,8 @@ jQuery(function () {
             .then((module) => module.initRatingHandlers(ratingForms));
     }
 
-    const navbar = document.querySelector('.work-menu');
-    if (navbar) {
+    const navbars = document.querySelectorAll('.work-menu')
+    for (let navbar of navbars) {
         const compactTitle = document.querySelector('.compact-title')
         // Add position-aware navbar JS:
         import(/* webpackChunkName: "nav-bar" */ './edition-nav-bar')
