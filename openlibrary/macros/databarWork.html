@@ -23,6 +23,8 @@ $if isbn_10 and not asin:
     $ asin = isbn_10
 
 <div class="Tools">
+  $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
+  $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations, 'mobile-edition-nav')
   <div id="read">
     $if page.volumes:
       <h3 class="header">
@@ -34,10 +36,6 @@ $if isbn_10 and not asin:
           <div class="panel">
             <p><a href="$viewbook.replace('XXX', v.ia_id)">View Volume $v.volume_number</a></p>
           </div>
-    <div class="mobile-edition-nav">
-      $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
-      $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations)
-    </div>
     <div class="panel">
       <div class="btn-notice read-options" id="read-options">
         <div class="illustration edition-cover">

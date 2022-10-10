@@ -193,7 +193,7 @@ $ render_summary= render_template("type/edition/title_summary", work, edition, o
       $ component_times['get_observation_metrics'] = time()
       $ reader_observations = get_observation_metrics(work['key']) if show_observations else {}
       $ component_times['get_observation_metrics'] = time() - component_times['get_observation_metrics']
-      $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations)
+      $:macros.EditionNavBar(reader_observations, work.edition_count, show_observations, extra_class='desktop-edition-nav')
       <div class="editionAll">
         $ component_times['EditTopbar'] = time()
         $:macros.databarView(page, edition)
