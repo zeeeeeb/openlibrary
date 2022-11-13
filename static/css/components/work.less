@@ -225,6 +225,20 @@ h2.edition-byline {
   border-radius: 7px; 
 }
 
+.work-menu li.edition-nav-expand a{
+  display: none;
+}
+
+@media (min-width: @width-breakpoint-mobile) {
+  .edition-nav-collapsed {
+    display: none;
+  }
+  .edition-nav-expand {
+    display: inline;
+  }
+}
+
+
 a.section-anchor {
   height: 20px;
   display: block;

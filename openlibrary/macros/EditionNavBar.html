@@ -14,7 +14,10 @@ $ total_reviews = reader_observations.get('total_respondents', 0)
   <li>
     <a href="#details" data-ol-link-track="BookPageNav|Details">$_("Details")</a>
   </li>
-  <li>
+  <li class="edition-nav-expand">
+    <a href="#"></a>➔</a>
+  </li>
+  <li class="edition-nav-collapsed">
     <a href="#reader-observations" data-ol-link-track="BookPageNav|Reviews">
       $if total_reviews > 0:
         $ungettext('%(reviews)s Review', '%(reviews)s Reviews', total_reviews, reviews=total_reviews)
@@ -22,7 +25,7 @@ $ total_reviews = reader_observations.get('total_respondents', 0)
         $_('Reviews')
     </a>
   </li>
-  <li>
+  <li class="edition-nav-collapsed">
     <a href="#lists-section" data-ol-link-track="BookPageNav|Lists">$_("Lists")</a>
   </li>
   <li>
